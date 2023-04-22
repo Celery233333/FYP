@@ -1,9 +1,9 @@
 # FYP - final year project for CQ with student ID: 20216424
 
 ## RecChord 
-this folder contains the app and all environments it needed.  
+this folder contains the windows APP and all environments it needed.  
 RecChord.exe in this folder is the APP, it can run directly.  
-pre-stored test images are in RecChord's 'test' folder, you can find and use them directly
+pre-stored test images are in RecChord's 'test' folder, you can find and use them.  
 temp folder will store users's input data temporarily, and delte after they exit the APP.
 
 ## note_recognition
