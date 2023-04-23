@@ -41,10 +41,10 @@ def changeKey(o):
 def predict_chord(path, level):
     try:
         df = pd.read_csv(path, na_values="noNote")
+        df.drop(['file'], axis=1, inplace=True)
+        df.drop(['note7','note8','note9','note10'], axis=1, inplace=True)
     except:
         return ''
-    df.drop(['file'], axis=1, inplace=True)
-    df.drop(['note7','note8','note9','note10'], axis=1, inplace=True)
 
     # delete = set()
     # for i in range(len(df)):
@@ -77,7 +77,10 @@ def predict_chord(path, level):
     le1 = joblib.load('models/chord.pkl')
     le2 = joblib.load('models/key.pkl')
 
-    keys = df['keySignature']
+    try:
+        keys = df['keySignature']
+    except:
+        return '&'
     for i in range(len(keys)):
         df['keySignature'][i] = keys[i].strip()
     df['keySignature'] = le2.transform(df['keySignature'])
