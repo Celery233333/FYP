@@ -26,7 +26,10 @@ def write_output(seq, output_file):
 
 def predict(imgpath, mode):
     
-    modelpath = 'models/rnndecoder.pt'
+    if mode == 'tough':
+        modelpath = 'models/latest_model60.pt'
+    else:
+        modelpath = 'models/rnndecoder.pt'
 
     # Setup GPU stuff
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
